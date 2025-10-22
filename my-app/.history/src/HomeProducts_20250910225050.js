@@ -1,0 +1,58 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import ProductCard from "./ProductCard";
+import "./HomeProducts.css";
+
+function HomeProducts({ AddToCart }) {
+  const navigate = useNavigate();
+
+  const products = [
+    { id: "home-1", name: "OnePlus TV", price: 20000, image: "images/1+tv.jpeg" },
+    { id: "home-2", name: "Preethi Mixture", price: 2500, image: "images/preethi.jpeg" },
+    { id: "home-3", name: "MI Washing Machine", price: 15000, image: "images/miw.jpeg" },
+    { id: "home-4", name: "Realme AC", price: 35000, image: "images/relme.jpeg" },
+    { id: "home-5", name: "Sony Speaker", price: 4000, image: "images/sony.jpeg" },
+  ];
+
+  const handleBuyNow = (product) => {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!token || !user) {
+      alert("Please sign in to place an order");
+      return;
+    }
+
+    // ✅ Navigate to CheckoutForm with product details
+    navigate("/checkout", {
+      state: {
+        items: [
+          {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1,
+          },
+        ],
+      },
+    });
+  };
+
+  return (
+    <section id="home-products" className="products-section container">
+      <h2>Home Products</h2>
+      <div className="product-grid">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            AddToCart={AddToCart}
+            handleBuyNow={handleBuyNow}
+          />
+        ))}
+      </div>
+  );
+}
+
+
+export default HomeProducts;

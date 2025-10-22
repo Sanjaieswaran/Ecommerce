@@ -1,0 +1,59 @@
+/* about.css */
+
+.about-container {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.about {
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.about p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 30px 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .about h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .about p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 20px 10px;
+    }
+
+    .about h2 {
+        font-size: 1.8em;
+    }
+}

@@ -1,0 +1,135 @@
+/* HomeProducts.css */
+
+.products-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.products-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.product-card {
+    background-color: #fff; /* Original background */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: contain; /* Ensures the image is scaled nicely within the box */
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+}
+
+.product-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.product-card-content h3 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-card-content .price {
+    font-size: 1.4em;
+    color: #e60023; /* Red color for price */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    width: 100%;
+    margin-top: 15px; /* Space above buttons */
+}
+
+.product-actions .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex: 1; /* Allow buttons to grow and shrink */
+    margin: 0 5px; /* Space between buttons */
+}
+
+.product-actions .btn-primary {
+    background-color: #007bff; /* Blue for Add to Cart */
+    color: white;
+}
+
+.product-actions .btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.product-actions .btn-success {
+    background-color: #28a745; /* Green for Buy Now */
+    color: white;
+}
+
+.product-actions .btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .products-section h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .product-actions {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+
+    .product-actions .btn {
+        width: 90%;
+        margin: 5px auto; /* Center buttons and add vertical space */
+    }
+}
